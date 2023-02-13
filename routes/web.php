@@ -18,4 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("posts",[PostsController::class,"createpost"]);
+Route::controller(PostsController::class)->group(function(){
+
+Route::get("post/create","createpost");
+Route::post("post/insert","insert")->name("post.insert");
+Route::get("post/getpost","getdata")->name("getname");
+Route::get("post/edit/{id}","edit")->name("post.edit");
+Route::post("post/update/{id}","update")->name("post.update");
+Route::get("post/delete/{id}","delete")->name("post.delete");
+Route::get("post/delete","deleteall")->name("posts.deleteall");
+Route::get("post/deletealltrun","deletealltrun")->name("posts.deletealltruncate");
+
+
+});
+
+
+
+
+
+
